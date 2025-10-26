@@ -1,5 +1,5 @@
 import { Card } from "@/components/ui/card";
-import { BookOpen, Trophy, Users, Code2, Zap, GraduationCap } from "lucide-react";
+import { BookOpen, Trophy, Users, Code2, Zap, GraduationCap, Target, Lightbulb, Clock, Shield, FileText, Video } from "lucide-react";
 
 const features = [
   {
@@ -32,6 +32,36 @@ const features = [
     title: "Continuous Assessment",
     description: "Regular quizzes, projects, and challenges that ensure you're mastering concepts before moving forward.",
   },
+  {
+    icon: Target,
+    title: "Personalized Learning Paths",
+    description: "AI-powered recommendations adapt to your skill level and learning pace for optimal progress.",
+  },
+  {
+    icon: Lightbulb,
+    title: "Project-Based Learning",
+    description: "Build real-world applications and portfolios while learning. Theory meets practice in every course.",
+  },
+  {
+    icon: Clock,
+    title: "Flexible Schedule",
+    description: "Learn at your own pace with 24/7 access to course materials, recorded sessions, and practice environments.",
+  },
+  {
+    icon: Shield,
+    title: "Industry Standards",
+    description: "Learn best practices and coding standards used by top tech companies and development teams.",
+  },
+  {
+    icon: FileText,
+    title: "Comprehensive Resources",
+    description: "Access documentation, cheat sheets, reference guides, and downloadable materials for every topic.",
+  },
+  {
+    icon: Video,
+    title: "HD Video Lectures",
+    description: "High-quality video content with captions, bookmarks, and adjustable playback for better understanding.",
+  },
 ];
 
 const Features = () => {
@@ -50,18 +80,18 @@ const Features = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {features.map((feature, index) => (
             <Card
               key={index}
-              className="p-8 bg-card border border-border shadow-card hover:shadow-professional transition-all duration-300 animate-fade-in group"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              className="p-6 bg-card border border-border shadow-card hover:shadow-professional transition-all duration-300 animate-fade-in group"
+              style={{ animationDelay: `${index * 0.05}s` }}
             >
-              <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
-                <feature.icon className="w-7 h-7 text-primary" />
+              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
+                <feature.icon className="w-6 h-6 text-primary" />
               </div>
-              <h3 className="text-xl font-bold mb-3 text-foreground">{feature.title}</h3>
-              <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
+              <h3 className="text-lg font-bold mb-2 text-foreground">{feature.title}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">{feature.description}</p>
             </Card>
           ))}
         </div>
