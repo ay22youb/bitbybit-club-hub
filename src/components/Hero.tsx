@@ -1,84 +1,128 @@
 import { Button } from "@/components/ui/button";
-import { Sparkles, Code, Zap } from "lucide-react";
-import heroImage from "@/assets/hero-bg.jpg";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image with Overlay */}
-      <div 
-        className="absolute inset-0 z-0"
-        style={{
-          backgroundImage: `url(${heroImage})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          opacity: 0.3,
-        }}
-      />
-      <div className="absolute inset-0 z-0 gradient-hero" />
-      
-      {/* Floating Elements */}
-      <div className="absolute top-20 left-10 animate-float">
-        <Code className="w-12 h-12 text-primary opacity-20" />
-      </div>
-      <div className="absolute bottom-32 right-20 animate-float" style={{ animationDelay: '1s' }}>
-        <Sparkles className="w-16 h-16 text-secondary opacity-20" />
-      </div>
-      <div className="absolute top-40 right-32 animate-float" style={{ animationDelay: '2s' }}>
-        <Zap className="w-10 h-10 text-accent opacity-20" />
+    <section className="relative pt-32 pb-20 px-4 overflow-hidden">
+      {/* Subtle Background Pattern */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute inset-0 gradient-hero opacity-60" />
+        <div className="absolute inset-0" style={{
+          backgroundImage: `radial-gradient(circle at 1px 1px, hsl(var(--border)) 1px, transparent 0)`,
+          backgroundSize: '40px 40px',
+          opacity: 0.3
+        }} />
       </div>
 
-      {/* Content */}
-      <div className="container mx-auto px-4 z-10 text-center animate-fade-in">
-        <div className="max-w-4xl mx-auto space-y-8">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card/50 backdrop-blur-sm border border-border mb-4">
-            <Sparkles className="w-4 h-4 text-primary animate-pulse-glow" />
-            <span className="text-sm font-medium">Where Innovation Meets Education</span>
+      <div className="container mx-auto max-w-7xl">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Left Content */}
+          <div className="space-y-8 animate-fade-in">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20">
+              <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+              <span className="text-sm font-medium text-foreground">Trusted by 500+ Students</span>
+            </div>
+
+            <div className="space-y-4">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-foreground">
+                Master Technology
+                <span className="block text-primary">Bit By Bit</span>
+              </h1>
+              
+              <p className="text-xl text-muted-foreground leading-relaxed max-w-xl">
+                Join a premier e-learning platform designed for ambitious students. 
+                Learn programming, robotics, and AI through structured courses and hands-on projects.
+              </p>
+            </div>
+
+            {/* Trust Indicators */}
+            <div className="space-y-3">
+              {[
+                "Interactive coding challenges",
+                "Industry-recognized curriculum",
+                "Expert mentor support"
+              ].map((item, i) => (
+                <div key={i} className="flex items-center gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
+                  <span className="text-foreground font-medium">{item}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex flex-col sm:flex-row gap-4 pt-4">
+              <Button variant="premium" size="lg" className="group">
+                Get Started Now
+                <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+              </Button>
+              <Button variant="outline" size="lg">
+                View Curriculum
+              </Button>
+            </div>
+
+            {/* Stats */}
+            <div className="grid grid-cols-3 gap-6 pt-8 border-t border-border">
+              <div>
+                <div className="text-3xl font-bold text-foreground">500+</div>
+                <div className="text-sm text-muted-foreground">Active Students</div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-foreground">50+</div>
+                <div className="text-sm text-muted-foreground">Expert Courses</div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-foreground">98%</div>
+                <div className="text-sm text-muted-foreground">Success Rate</div>
+              </div>
+            </div>
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-bold leading-tight">
-            Learn Technology,
-            <br />
-            <span className="text-gradient">Bit By Bit</span>
-          </h1>
+          {/* Right Visual */}
+          <div className="relative animate-fade-in" style={{ animationDelay: '0.2s' }}>
+            <div className="relative bg-card rounded-2xl shadow-professional p-8 border border-border">
+              <div className="space-y-6">
+                {/* Code Editor Mockup */}
+                <div className="space-y-3">
+                  <div className="flex items-center gap-2">
+                    <div className="w-3 h-3 rounded-full bg-destructive" />
+                    <div className="w-3 h-3 rounded-full bg-accent" />
+                    <div className="w-3 h-3 rounded-full bg-primary" />
+                  </div>
+                  <div className="bg-muted rounded-lg p-4 font-mono text-sm space-y-2">
+                    <div className="text-muted-foreground">
+                      <span className="text-primary">function</span> <span className="text-foreground">learn</span>() {'{'}
+                    </div>
+                    <div className="text-muted-foreground pl-4">
+                      <span className="text-primary">const</span> <span className="text-foreground">growth</span> = <span className="text-accent">'exponential'</span>;
+                    </div>
+                    <div className="text-muted-foreground pl-4">
+                      <span className="text-primary">return</span> <span className="text-foreground">success</span>;
+                    </div>
+                    <div className="text-muted-foreground">{'}'}</div>
+                  </div>
+                </div>
 
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto">
-            Join a community of young innovators. Master programming, robotics, and AI through 
-            interactive challenges, gamified learning, and real-world projects.
-          </p>
+                {/* Achievement Card */}
+                <div className="bg-gradient-hero rounded-lg p-4 border border-primary/20">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <div className="text-sm text-muted-foreground">Current Level</div>
+                      <div className="text-2xl font-bold text-foreground">Professional</div>
+                    </div>
+                    <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
+                      <span className="text-2xl font-bold text-primary">12</span>
+                    </div>
+                  </div>
+                  <div className="mt-4 bg-muted rounded-full h-2 overflow-hidden">
+                    <div className="bg-primary h-full w-3/4 rounded-full" />
+                  </div>
+                </div>
+              </div>
+            </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
-            <Button variant="hero" size="lg" className="group">
-              Start Learning Now
-              <Zap className="ml-2 group-hover:animate-pulse" />
-            </Button>
-            <Button variant="outline" size="lg">
-              Explore Courses
-            </Button>
+            {/* Floating Elements */}
+            <div className="absolute -top-4 -right-4 w-24 h-24 bg-primary/10 rounded-full blur-2xl animate-pulse" />
+            <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-accent/10 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '1s' }} />
           </div>
-
-          {/* Stats */}
-          <div className="grid grid-cols-3 gap-8 pt-12 max-w-2xl mx-auto">
-            <div className="space-y-2">
-              <div className="text-3xl md:text-4xl font-bold text-gradient">500+</div>
-              <div className="text-sm text-muted-foreground">Active Learners</div>
-            </div>
-            <div className="space-y-2">
-              <div className="text-3xl md:text-4xl font-bold text-gradient">50+</div>
-              <div className="text-sm text-muted-foreground">Courses</div>
-            </div>
-            <div className="space-y-2">
-              <div className="text-3xl md:text-4xl font-bold text-gradient">1000+</div>
-              <div className="text-sm text-muted-foreground">Projects Built</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 rounded-full border-2 border-primary/50 flex items-start justify-center p-2">
-          <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
         </div>
       </div>
     </section>
