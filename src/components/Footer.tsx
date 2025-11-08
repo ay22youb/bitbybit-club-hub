@@ -1,4 +1,5 @@
 import { Code2, Mail, Phone, MapPin } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -7,7 +8,7 @@ const Footer = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
           <div className="space-y-4">
-            <div className="flex items-center gap-3">
+            <Link to="/" className="flex items-center gap-3">
               <div className="w-11 h-11 rounded-lg bg-primary flex items-center justify-center shadow-md">
                 <Code2 className="w-6 h-6 text-primary-foreground" />
               </div>
@@ -17,7 +18,7 @@ const Footer = () => {
                 </span>
                 <span className="text-xs text-muted-foreground">E-Learning Platform</span>
               </div>
-            </div>
+            </Link>
             <p className="text-sm text-muted-foreground leading-relaxed">
               Empowering the next generation of technology leaders through comprehensive education and hands-on experience.
             </p>
@@ -27,10 +28,8 @@ const Footer = () => {
           <div>
             <h4 className="font-bold text-foreground mb-4">Platform</h4>
             <ul className="space-y-3 text-sm text-muted-foreground">
-              <li><a href="#" className="hover:text-foreground transition-colors font-medium">All Courses</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors font-medium">Learning Paths</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors font-medium">Certifications</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors font-medium">Student Dashboard</a></li>
+              <li><Link to="/courses" className="hover:text-foreground transition-colors font-medium">All Courses</Link></li>
+              <li><Link to="/dashboard" className="hover:text-foreground transition-colors font-medium">Student Dashboard</Link></li>
             </ul>
           </div>
 
@@ -39,8 +38,6 @@ const Footer = () => {
             <h4 className="font-bold text-foreground mb-4">Company</h4>
             <ul className="space-y-3 text-sm text-muted-foreground">
               <li><a href="#" className="hover:text-foreground transition-colors font-medium">About Us</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors font-medium">Our Team</a></li>
-              <li><a href="#" className="hover:text-foreground transition-colors font-medium">Careers</a></li>
               <li><a href="#" className="hover:text-foreground transition-colors font-medium">Contact</a></li>
             </ul>
           </div>
@@ -78,7 +75,6 @@ const Footer = () => {
             <div className="flex gap-6 text-sm text-muted-foreground">
               <a href="#" className="hover:text-foreground transition-colors font-medium">Privacy Policy</a>
               <a href="#" className="hover:text-foreground transition-colors font-medium">Terms of Service</a>
-              <a href="#" className="hover:text-foreground transition-colors font-medium">Cookie Policy</a>
             </div>
           </div>
         </div>

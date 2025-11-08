@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Code2, Menu, X } from "lucide-react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,7 +11,7 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <div className="flex items-center gap-3 group cursor-pointer">
+          <Link to="/" className="flex items-center gap-3 group cursor-pointer">
             <div className="w-11 h-11 rounded-lg bg-primary flex items-center justify-center group-hover:scale-105 transition-transform shadow-md">
               <Code2 className="w-6 h-6 text-primary-foreground" />
             </div>
@@ -20,32 +21,33 @@ const Navbar = () => {
               </span>
               <span className="text-xs text-muted-foreground">E-Learning Platform</span>
             </div>
-          </div>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            <a href="#features" className="text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors">
-              Features
-            </a>
-            <a href="#courses" className="text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors">
+            <Link to="/courses" className="text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors">
               Courses
-            </a>
-            <a href="#testimonials" className="text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors">
-              Success Stories
-            </a>
-            <a href="#about" className="text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors">
-              About
-            </a>
+            </Link>
+            <Link to="/leaderboard" className="text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors">
+              Leaderboard
+            </Link>
+            <Link to="/dashboard" className="text-sm font-semibold text-muted-foreground hover:text-foreground transition-colors">
+              Dashboard
+            </Link>
           </div>
 
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center gap-3">
-            <Button variant="ghost" size="default">
-              Sign In
-            </Button>
-            <Button variant="default" size="default">
-              Get Started
-            </Button>
+            <Link to="/sign-in">
+              <Button variant="ghost" size="default">
+                Sign In
+              </Button>
+            </Link>
+            <Link to="/sign-up">
+              <Button variant="default" size="default">
+                Get Started
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -60,25 +62,26 @@ const Navbar = () => {
         {/* Mobile Menu */}
         {isOpen && (
           <div className="md:hidden py-6 space-y-6 animate-fade-in border-t border-border">
-            <a href="#features" className="block text-base font-semibold text-muted-foreground hover:text-foreground transition-colors">
-              Features
-            </a>
-            <a href="#courses" className="block text-base font-semibold text-muted-foreground hover:text-foreground transition-colors">
+            <Link to="/courses" className="block text-base font-semibold text-muted-foreground hover:text-foreground transition-colors">
               Courses
-            </a>
-            <a href="#testimonials" className="block text-base font-semibold text-muted-foreground hover:text-foreground transition-colors">
-              Success Stories
-            </a>
-            <a href="#about" className="block text-base font-semibold text-muted-foreground hover:text-foreground transition-colors">
-              About
-            </a>
+            </Link>
+            <Link to="/leaderboard" className="block text-base font-semibold text-muted-foreground hover:text-foreground transition-colors">
+              Leaderboard
+            </Link>
+            <Link to="/dashboard" className="block text-base font-semibold text-muted-foreground hover:text-foreground transition-colors">
+              Dashboard
+            </Link>
             <div className="flex flex-col gap-3 pt-4">
-              <Button variant="ghost" size="default" className="w-full">
-                Sign In
-              </Button>
-              <Button variant="default" size="default" className="w-full">
-                Get Started
-              </Button>
+              <Link to="/sign-in">
+                <Button variant="ghost" size="default" className="w-full">
+                  Sign In
+                </Button>
+              </Link>
+              <Link to="/sign-up">
+                <Button variant="default" size="default" className="w-full">
+                  Get Started
+                </Button>
+              </Link>
             </div>
           </div>
         )}
