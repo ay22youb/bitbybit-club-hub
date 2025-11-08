@@ -20,27 +20,27 @@ const Hero = () => {
           <div className="space-y-8 animate-fade-in">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20">
               <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-              <span className="text-sm font-medium text-foreground">Trusted by 500+ Students</span>
+              <span className="text-sm font-medium text-foreground">Join the Bit by Bit Community</span>
             </div>
 
             <div className="space-y-4">
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight text-foreground">
-                Master Technology
-                <span className="block text-primary">Bit By Bit</span>
+                Welcome to Bit by Bit
+                <span className="block text-primary">Your Learning Adventure</span>
               </h1>
               
               <p className="text-xl text-muted-foreground leading-relaxed max-w-xl">
-                Join a premier e-learning platform designed for ambitious students. 
-                Learn programming, robotics, and AI through structured courses and hands-on projects.
+                The official e-learning platform for the Bit by Bit club.
+                Level up your skills in programming, design, and more through fun, gamified courses.
               </p>
             </div>
 
             {/* Trust Indicators */}
             <div className="space-y-3">
               {[
-                "Interactive coding challenges",
-                "Industry-recognized curriculum",
-                "Expert mentor support"
+                "Interactive gamified challenges",
+                "Community-driven curriculum",
+                "Peer-to-peer mentor support"
               ].map((item, i) => (
                 <div key={i} className="flex items-center gap-3">
                   <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
@@ -51,27 +51,27 @@ const Hero = () => {
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <Button variant="premium" size="lg" className="group">
-                Get Started Now
+                Start Your Quest
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
               <Button variant="outline" size="lg">
-                View Curriculum
+                Explore Courses
               </Button>
             </div>
 
             {/* Stats */}
             <div className="grid grid-cols-3 gap-6 pt-8 border-t border-border">
               <div>
-                <div className="text-3xl font-bold text-foreground">500+</div>
-                <div className="text-sm text-muted-foreground">Active Students</div>
+                <div className="text-3xl font-bold text-foreground">120+</div>
+                <div className="text-sm text-muted-foreground">Club Members</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-foreground">50+</div>
-                <div className="text-sm text-muted-foreground">Expert Courses</div>
+                <div className="text-3xl font-bold text-foreground">25+</div>
+                <div className="text-sm text-muted-foreground">Quests Available</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-foreground">98%</div>
-                <div className="text-sm text-muted-foreground">Success Rate</div>
+                <div className="text-3xl font-bold text-foreground">1500</div>
+                <div className="text-sm text-muted-foreground">XP Awarded</div>
               </div>
             </div>
           </div>
@@ -89,13 +89,13 @@ const Hero = () => {
                   </div>
                   <div className="bg-muted rounded-lg p-4 font-mono text-sm space-y-2">
                     <div className="text-muted-foreground">
-                      <span className="text-primary">function</span> <span className="text-foreground">learn</span>() {'{'}
+                      <span className="text-primary">function</span> <span className="text-foreground">levelUp</span>() {'{'}
                     </div>
                     <div className="text-muted-foreground pl-4">
-                      <span className="text-primary">const</span> <span className="text-foreground">growth</span> = <span className="text-accent">'exponential'</span>;
+                      <span className="text-primary">const</span> <span className="text-foreground">skill</span> = <span className="text-accent">'new Skill()'</span>;
                     </div>
                     <div className="text-muted-foreground pl-4">
-                      <span className="text-primary">return</span> <span className="text-foreground">success</span>;
+                      <span className="text-primary">return</span> <span className="text-foreground">unlocked</span>;
                     </div>
                     <div className="text-muted-foreground">{'}'}</div>
                   </div>
@@ -105,15 +105,15 @@ const Hero = () => {
                 <div className="bg-gradient-hero rounded-lg p-4 border border-primary/20">
                   <div className="flex items-center justify-between">
                     <div>
-                      <div className="text-sm text-muted-foreground">Current Level</div>
-                      <div className="text-2xl font-bold text-foreground">Professional</div>
+                      <div className="text-sm text-muted-foreground">Current Rank</div>
+                      <div className="text-2xl font-bold text-foreground">Code Novice</div>
                     </div>
                     <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center">
-                      <span className="text-2xl font-bold text-primary">12</span>
+                      <span className="text-2xl font-bold text-primary">Lv. 1</span>
                     </div>
                   </div>
                   <div className="mt-4 bg-muted rounded-full h-2 overflow-hidden">
-                    <div className="bg-primary h-full w-3/4 rounded-full" />
+                    <div className="bg-primary h-full w-1/4 rounded-full" />
                   </div>
                 </div>
               </div>
