@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Code2, Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -38,13 +39,14 @@ const Navbar = () => {
 
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center gap-3">
+            <ThemeToggle />
             <Link to="/sign-in">
               <Button variant="ghost" size="default">
                 Sign In
               </Button>
             </Link>
             <Link to="/sign-up">
-              <Button variant="default" size="default">
+              <Button variant="default" size="default" className="shadow-neon">
                 Get Started
               </Button>
             </Link>

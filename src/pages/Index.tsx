@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
+import RobotChatbot from "@/components/RobotChatbot";
 
 const Index = () => {
   return (
@@ -10,6 +11,7 @@ const Index = () => {
         <Hero />
       </main>
       <Footer />
+      <RobotChatbot />
     </div>
   );
 };

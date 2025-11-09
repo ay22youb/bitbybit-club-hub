@@ -50,11 +50,11 @@ const Hero = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <Button variant="premium" size="lg" className="group">
+              <Button variant="premium" size="lg" className="group shadow-neon animate-neon-pulse">
                 Start Your Quest
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
               </Button>
-              <Button variant="outline" size="lg">
+              <Button variant="outline" size="lg" className="border-2 border-primary hover:shadow-neon-secondary">
                 Explore Courses
               </Button>
             </div>
