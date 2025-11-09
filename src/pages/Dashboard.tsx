@@ -74,7 +74,7 @@ const Dashboard = () => {
               <CardContent>
                 <div className="flex flex-wrap gap-2">
                   {user.achievements.map((achievement, index) => (
-                    <Badge key={index} variant="premium">
+                    <Badge key={index} variant="secondary">
                       <achievement.icon className="w-4 h-4 mr-1" />
                       {achievement.name}
                     </Badge>
