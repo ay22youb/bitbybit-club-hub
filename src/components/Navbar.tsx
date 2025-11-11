@@ -1,11 +1,13 @@
 import { Button } from "@/components/ui/button";
-import { Code2, Menu, X } from "lucide-react";
+import { Code2, Menu, X, LogOut } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import ThemeToggle from "@/components/ThemeToggle";
+import { useAuth } from "@/hooks/useAuth";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { user, signOut } = useAuth();
 
   return (
     <nav className="fixed top-0 w-full z-50 bg-background/95 backdrop-blur-md border-b border-border shadow-sm">
@@ -40,16 +42,25 @@ const Navbar = () => {
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center gap-3">
             <ThemeToggle />
-            <Link to="/sign-in">
-              <Button variant="ghost" size="default">
-                Sign In
+            {user ? (
+              <Button variant="ghost" size="default" onClick={signOut} className="gap-2">
+                <LogOut className="w-4 h-4" />
+                Sign Out
               </Button>
-            </Link>
-            <Link to="/sign-up">
-              <Button variant="default" size="default" className="shadow-neon">
-                Get Started
-              </Button>
-            </Link>
+            ) : (
+              <>
+                <Link to="/sign-in">
+                  <Button variant="ghost" size="default">
+                    Sign In
+                  </Button>
+                </Link>
+                <Link to="/sign-up">
+                  <Button variant="default" size="default" className="shadow-neon">
+                    Get Started
+                  </Button>
+                </Link>
+              </>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -74,16 +85,25 @@ const Navbar = () => {
               Dashboard
             </Link>
             <div className="flex flex-col gap-3 pt-4">
-              <Link to="/sign-in">
-                <Button variant="ghost" size="default" className="w-full">
-                  Sign In
+              {user ? (
+                <Button variant="ghost" size="default" className="w-full gap-2" onClick={signOut}>
+                  <LogOut className="w-4 h-4" />
+                  Sign Out
                 </Button>
-              </Link>
-              <Link to="/sign-up">
-                <Button variant="default" size="default" className="w-full">
-                  Get Started
-                </Button>
-              </Link>
+              ) : (
+                <>
+                  <Link to="/sign-in">
+                    <Button variant="ghost" size="default" className="w-full">
+                      Sign In
+                    </Button>
+                  </Link>
+                  <Link to="/sign-up">
+                    <Button variant="default" size="default" className="w-full">
+                      Get Started
+                    </Button>
+                  </Link>
+                </>
+              )}
             </div>
           </div>
         )}

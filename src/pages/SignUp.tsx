@@ -1,67 +1,97 @@
-import { Button } from "@/components/ui/button"
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Link } from "react-router-dom"
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import Navbar from "@/components/Navbar";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Link } from "react-router-dom";
+import { useAuth } from "@/hooks/useAuth";
 
 const SignUp = () => {
-  return (
-    <div className="flex items-center justify-center min-h-screen bg-background">
-      <Card className="mx-auto max-w-sm">
-        <CardHeader>
-          <CardTitle className="text-xl">Sign Up</CardTitle>
-          <CardDescription>
-            Enter your information to create an account
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="grid gap-4">
-            <div className="grid grid-cols-2 gap-4">
-              <div className="grid gap-2">
-                <Label htmlFor="first-name">First name</Label>
-                <Input id="first-name" placeholder="Max" required />
-              </div>
-              <div className="grid gap-2">
-                <Label htmlFor="last-name">Last name</Label>
-                <Input id="last-name" placeholder="Robinson" required />
-              </div>
-            </div>
-            <div className="grid gap-2">
-              <Label htmlFor="email">Email</Label>
-              <Input
-                id="email"
-                type="email"
-                placeholder="m@example.com"
-                required
-              />
-            </div>
-            <div className="grid gap-2">
-              <Label htmlFor="password">Password</Label>
-              <Input id="password" type="password" />
-            </div>
-            <Button type="submit" className="w-full">
-              Create an account
-            </Button>
-            <Button variant="outline" className="w-full">
-              Sign up with Google
-            </Button>
-          </div>
-          <div className="mt-4 text-center text-sm">
-            Already have an account?{" "}
-            <Link to="/sign-in" className="underline">
-              Sign in
-            </Link>
-          </div>
-        </CardContent>
-      </Card>
-    </div>
-  )
-}
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const { signUp, user } = useAuth();
+  const navigate = useNavigate();
 
-export default SignUp
+  useEffect(() => {
+    if (user) {
+      navigate("/dashboard");
+    }
+  }, [user, navigate]);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
+    await signUp(email, password, username);
+    setIsLoading(false);
+  };
+
+  return (
+    <div className="min-h-screen">
+      <Navbar />
+      <div className="container mx-auto px-4 py-16 flex items-center justify-center">
+        <Card className="w-full max-w-md shadow-professional animate-fade-in">
+          <CardHeader>
+            <CardTitle className="text-2xl font-bold text-center text-gradient">Create Account</CardTitle>
+            <CardDescription className="text-center">Join us and start your learning adventure</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div className="space-y-2">
+                <Label htmlFor="username">Username</Label>
+                <Input
+                  id="username"
+                  type="text"
+                  placeholder="Choose a username"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                  required
+                  className="w-full"
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="email">Email</Label>
+                <Input
+                  id="email"
+                  type="email"
+                  placeholder="Enter your email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  className="w-full"
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="password">Password</Label>
+                <Input
+                  id="password"
+                  type="password"
+                  placeholder="Create a password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                  minLength={6}
+                  className="w-full"
+                />
+              </div>
+              <Button type="submit" className="w-full shadow-neon" disabled={isLoading}>
+                {isLoading ? "Creating account..." : "Sign Up"}
+              </Button>
+            </form>
+            <p className="text-center text-sm text-muted-foreground mt-4">
+              Already have an account?{" "}
+              <Link to="/sign-in" className="text-primary hover:underline">
+                Sign in
+              </Link>
+            </p>
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+  );
+};
+
+export default SignUp;
