@@ -7,6 +7,7 @@ import { Progress } from "@/components/ui/progress";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
 import { toast } from "@/hooks/use-toast";
+import { useNavigate } from "react-router-dom";
 import XPProgress from "@/components/XPProgress";
 import AchievementBadge from "@/components/AchievementBadge";
 import ParticleBackground from "@/components/ParticleBackground";
@@ -45,6 +46,7 @@ interface UserAchievement {
 
 const DashboardNew = () => {
   const { user } = useAuth();
+  const navigate = useNavigate();
   const [profile, setProfile] = useState<Profile | null>(null);
   const [enrolledCourses, setEnrolledCourses] = useState<CourseProgress[]>([]);
   const [achievements, setAchievements] = useState<Achievement[]>([]);
@@ -247,7 +249,12 @@ const DashboardNew = () => {
                           </div>
                           <Progress value={course.progress} className="h-2" />
                         </div>
-                        <Button className="w-full mt-4 shadow-neon">Continue Quest</Button>
+                        <Button 
+                          className="w-full mt-4 shadow-neon"
+                          onClick={() => navigate(`/courses/${course.courses.id}/content`)}
+                        >
+                          Continue Quest
+                        </Button>
                       </CardContent>
                     </Card>
                   ))}
